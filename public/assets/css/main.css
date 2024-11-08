@@ -1,0 +1,23 @@
+.sbg_color{
+    background-color: #3C8DBC!important;
+}
+.header .toggle-sidebar-btn{
+    color: aliceblue!important;
+}
+.himg{
+    margin-right: 6px;
+    padding-right: 1px;
+    padding-left: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background: #effff5;
+}
+
+.hpro_item{
+    color: #fff !important;
+    transition: .4s;
+}
+.hpro_item:hover{
+    background-color: #3C8DBC !important;
+    color: #73c0ec !important;
+}
