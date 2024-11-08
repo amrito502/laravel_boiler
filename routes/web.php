@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.dashboard');
 });
+// =================================================
+// admin-routes=====================================
+
+Route::get('admin/dashboard',[AdminController::class,'admin_dashboard'])->name('admin.dashboard');
+
+
+
+
+
+
+
+
+
+// =================================================
 
 Route::get('/dashboard', function () {
     return view('dashboard');

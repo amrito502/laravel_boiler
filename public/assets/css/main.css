@@ -8,9 +8,17 @@
     margin-right: 6px;
     padding-right: 1px;
     padding-left: 7px;
-    padding-top: 4px;
+    padding-top: 7px;
     padding-bottom: 4px;
-    background: #effff5;
+    background: #0c9ad1;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+.himg_icon{
+    font-size: 26px !important;
+    color: #fff !important;
+    font-weight: bolder !important;
 }
 
 .hpro_item{
