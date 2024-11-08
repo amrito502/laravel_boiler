@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,8 +20,19 @@ Route::get('/', function () {
 // =================================================
 // admin-routes=====================================
 
-Route::get('admin/dashboard',[AdminController::class,'admin_dashboard'])->name('admin.dashboard');
+Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function(){
 
+    // admin login
+    Route::match(['get','post'],'login','AdminController@admin_login')->name('admin.login');
+    
+
+    Route::group(['middleware'=>['admin']], function(){
+        Route::get('dashboard','AdminController@admin_dashboard')->name('admin.dashboard');
+    });
+
+
+    
+});
 
 
 
