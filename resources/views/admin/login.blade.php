@@ -37,13 +37,17 @@
                   <div class="pt-4 pb-3">
                     <h5 class="card-title text-center pb-0 fs-4 text-dark">Admin Login</h5>
                   </div>
-                  <form class="row g-3 needs-validation" novalidate>
+                  @if (Session::has('message'))
+                      <p class="text-danger">{{ Session::get('message') }}</p>
+                  @endif
+                  <form action="{{ url('admin/login') }}" method="post" class="row g-3 needs-validation" novalidate>
+                    @csrf
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="text" name="email" class="form-control" id="yourUsername" required>
+                        <div class="invalid-feedback">Please enter your email.</div>
                       </div>
                     </div>
 

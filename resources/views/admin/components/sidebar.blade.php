@@ -36,17 +36,17 @@
 
       <li class="nav-item sbg_color">
         <a class="nav-link collapsed sbg_color" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-folder-symlink-fill text-white"></i><span class="text-white">Forms</span><i class="bi bi-plus-lg ms-auto text-white"></i>
+          <i class="bi bi-folder-symlink-fill text-white"></i><span class="text-white">Settings</span><i class="bi bi-plus-lg ms-auto text-white"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-arrow-right-circle-fill text-white"></i><span class="text-white">Form Elements</span>
+            <a href="{{ url('admin/update-admin-password') }}">
+              <i class="bi bi-arrow-right-circle-fill text-white"></i><span class="text-white">Update Admin Password</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-arrow-right-circle-fill text-white"></i><span class="text-white">Form Layouts</span>
+            <a href="{{ url('admin/update-admin-details') }}">
+              <i class="bi bi-arrow-right-circle-fill text-white"></i><span class="text-white">Update Admin Details</span>
             </a>
           </li>
         </ul>

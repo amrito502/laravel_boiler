@@ -97,9 +97,9 @@
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item hpro_item d-flex align-items-center" href="#">
+              <a class="dropdown-item hpro_item d-flex align-items-center" href="{{ url('admin/logout') }}">
                 <i class="bi bi-box-arrow-right text-white"></i>
-                <span>Sign Out</span>
+                <span>Log Out</span>
               </a>
             </li>
 
