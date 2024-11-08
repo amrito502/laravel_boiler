@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('vendor_id');
             $table->string('password');
             $table->string('mobile');
+            $table->string('image');
             $table->string('email')->unique();
             $table->tinyInteger('status');
             $table->timestamps();
