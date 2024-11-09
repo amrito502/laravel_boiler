@@ -29,3 +29,21 @@
     background-color: #3C8DBC !important;
     color: #73c0ec !important;
 }
+.admin_profile_image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #ffffff;
+    outline: 2px solid #d5c1c1;
+}
+.admin_default_profile_image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #ffffff;
+    outline: 2px solid #d5c1c1;
+}

@@ -17,13 +17,13 @@
 
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Edit Admin Details</h5>
+                <h5 class="card-title text-dark">Edit Admin Details</h5>
   
                 <!-- General Form Elements -->
                 @if (Session::has('message'))
                   <p class="text-success">{{ Session::get('message') }}</p>
                 @endif
-                <form action="{{ url('admin/update-admin-details') }}" method="post" name="updateAdminPasswordForm" id="updateAdminPasswordForm">
+                <form action="{{ url('admin/update-admin-details') }}" method="post" name="updateAdminPasswordForm" id="updateAdminPasswordForm" enctype="multipart/form-data">
                   @csrf
                   <div class="row mb-3">
                     <label  class="col-sm-2 col-form-label">Admin Email</label>
@@ -56,11 +56,27 @@
                       @endif
                     </div>
                   </div>
+
+                  <div class="row mb-3">
+                    <label for="admin_image" class="col-sm-2 col-form-label">Choose Photo</label>
+                    <div class="col-sm-10">
+                      <input type="file" name="admin_image" class="form-control">
+                      @php
+                       $img = Auth::guard('admin')->user()->image;
+                      @endphp
+  
+                      @if (isset($img) && file_exists(public_path('assets/img/upload/admin_profile_pic/' . $img)))
+                          <img src="{{ asset('assets/img/upload/admin_profile_pic/'.$img) }}" alt="Uploaded Image" class="admin_profile_image">
+                      @else
+                          <img src="{{ asset('assets/default/img.png') }}" alt="Default Profile Picture" class="admin_default_profile_image">
+                      @endif
+                    </div>
+                  </div>
     
                   <div class="row mb-3">
                     <label class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Update Details</button>
+                      <button type="submit" class="btn btn-success">Update Details</button>
                     </div>
                   </div>
   

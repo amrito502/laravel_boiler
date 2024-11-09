@@ -18,14 +18,12 @@ class AdminController extends Controller
     {
         if($request->isMethod('post')){
             $data = $request->all();
-
             if(Auth::guard('admin')->attempt(['email'=>$data['email'],'password'=>$data['password'],'status'=>1])){
                 return redirect('admin/dashboard');
             }else{
                 return redirect()->back()->with('message','Invalid Credentials!');
             }
         }
-       
         return view('admin.login');
     }
 
@@ -67,8 +65,20 @@ class AdminController extends Controller
 
             ];
             $this->validate($request, $rules, $customMessages);
+            if ($request->hasFile('admin_image')) {
+                $oldImage = 'assets/img/upload/admin_profile_pic/'.Auth::guard('admin')->user()->image;
+                if (file_exists(public_path($oldImage))) {
+                    unlink(public_path($oldImage));
+                }
+                $image_tmp = $request->file('admin_image');
+                if ($image_tmp->isValid()) {
+                    $extension = $image_tmp->getClientOriginalExtension();
+                    $filename = rand(111, 99999) . '.' . $extension;
+                    $image_tmp->move(public_path('assets/img/upload/admin_profile_pic/'), $filename);
+                }
+            }
             $data = $request->all();
-            Admin::where('id',Auth::guard('admin')->user()->id)->update(['name'=>$data['admin_name'],'mobile'=>$data['admin_mobile']]);
+            Admin::where('id',Auth::guard('admin')->user()->id)->update(['name'=>$data['admin_name'],'mobile'=>$data['admin_mobile'],'image'=>$filename]);
             return redirect()->back()->with('message','Admin details updated successfully');
         }
         return view('admin.settings.update_admin_details');
